@@ -1,7 +1,8 @@
 from django.urls import path
 from . import views
+# app_name = 'food' name spacnig for where there are two or more apps with same url name
 urlpatterns=[
     path('', views.index, name='index' ),
-    path('item/', views.item, name='itme' ),
-    
+    path('item/', views.item, name='item' ),
+    path('<int:item_id>', views.detail, name='details')
 ]

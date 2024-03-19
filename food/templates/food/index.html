@@ -1,0 +1,12 @@
+<h1>this is just a template</h1>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, nisi minus
+possimus laudantium tenetur dolorem. Alias asperiores nostrum enim eum impedit
+porro dolorem, explicabo iure esse quam beatae voluptas! Excepturi?
+<ul>
+    
+    {% for item in item_list %}
+   <a href=" {% url 'details' item.id %} "> <!--  if you were to use app name, it would be 'food:detail' as the url -->
+    <li>{{item.id}} -- {{item.item_name}}</li>
+   </a> 
+    {% endfor %}
+</ul>
