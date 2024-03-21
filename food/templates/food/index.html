@@ -1,12 +1,62 @@
-<h1>this is just a template</h1>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, nisi minus
-possimus laudantium tenetur dolorem. Alias asperiores nostrum enim eum impedit
-porro dolorem, explicabo iure esse quam beatae voluptas! Excepturi?
-<ul>
-    
-    {% for item in item_list %}
-   <a href=" {% url 'details' item.id %} "> <!--  if you were to use app name, it would be 'food:detail' as the url -->
-    <li>{{item.id}} -- {{item.item_name}}</li>
-   </a> 
-    {% endfor %}
-</ul>
+{% extends 'food/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        p{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+    </style>
+  </head>
+  <body>
+    {% block body %}
+    <div
+      style="
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        flex-direction: column;
+      "
+    >
+      {% for item in item_list %}
+      <div
+        style="
+          width: 1000px; 
+          border-radius: 8px;
+          gap: .5rem;
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+          display: flex;
+        "
+      >
+        <div style="width: 400px; height: 300px; overflow: hidden;">
+          <img
+            style="width: 100%"
+            src="{{item.item_image}}"
+            alt=""
+          />
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-direction: column;">
+          <div>
+            <p style="font-family: 'Varela Round', sans-serif;
+            font-weight: 400;
+            font-style: normal; font-size: 2rem; padding: 5px;">{{item.item_name}}</p>
+            <p style="font-family: sans-serif; padding: 5px;">
+             {{item.item_desc}} 
+            </p>
+            <p style="font-family: roboto; font-size: 1.1rem; font-style: italic; padding: 5px;">${{item.item_price}}</p>
+          </div>
+          <a href="{% url 'details' item.id %}" style="width: 100%;  padding-bottom: 5px;">
+            <button style="width: 98%; border: none; border-radius: 5px; font-family: roboto; padding: 7px 10px; font-size: 1rem;">Details</button>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endblock %}
+  </body>
+</html>
