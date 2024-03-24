@@ -30,4 +30,19 @@ def create_item(request):
         return redirect("index")
     return render(request, 'food/item-form.html', context={'form':form})
 
+def update_food(request, id):
+    item = Item.objects.get(id=id)
+    form = itemform(request.POST or None, instance=item)
+
+    if form.is_valid():
+        form.save()
+        return redirect('/food')
     
+    return render(request, 'food/item-form.html', context={'form':form, 'item':item})
+
+def delete(request, id):
+    item = Item.objects.get(id=id)
+    if request.method == 'POST':
+        item.delete()
+        return redirect("/food")
+    return render(request, 'food/confirm_delete.html', context = {'item':item})

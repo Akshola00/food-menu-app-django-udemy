@@ -7,5 +7,7 @@ urlpatterns=[
     path('<int:item_id>', views.detail, name='details'),
 
     # add view
-    path('add', views.create_item, name='create_item')
+    path('add', views.create_item, name='create_item'),
+    path('update/<int:id>/', views.update_food, name='update_food'),
+    path('delete/<int:id>/', views.delete, name='delete'),
 ]

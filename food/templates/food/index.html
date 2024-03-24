@@ -52,6 +52,8 @@
           </div>
           <a href="{% url 'details' item.id %}" style="width: 100%;  padding-bottom: 5px;">
             <button style="width: 98%; border: none; border-radius: 5px; font-family: roboto; padding: 7px 10px; font-size: 1rem;">Details</button>
+            <button style="width: 98%; border: none; border-radius: 5px; font-family: roboto; padding: 7px 10px; font-size: 1rem;"><a href="{% url 'update_food' item.id %}">update food</a></button>
+            <button style="width: 98%; border: none; border-radius: 5px; font-family: roboto; padding: 7px 10px; font-size: 1rem;"><a href="{% url 'delete' item.id %}">delete food</a></button>
           </a>
         </div>
       </div>
