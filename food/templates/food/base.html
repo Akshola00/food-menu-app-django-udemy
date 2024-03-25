@@ -27,15 +27,30 @@
     <link rel="stylesheet" href="{% static 'food/style.css' %}">
   </head>
   <body>
-    <nav class="navbar navbar-dark bg-dark">
-      <a href="#" class="navbar-brand">Food app</a>
-      <div class="navbar">
-        <a href="#" class="nav-item pd">Delete Item</a>
-        <a href="{% url 'create_item' %}" class="nav-item pd">Add Item</a>
-        <a href="#" class="nav-item pd">View Item</a>
+
+    <nav class="navbar navbar-expand-lg bg-dark" style="color: rgb(204, 48, 48);">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Shola X Food Menu App</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="food/">Home</a>
+            <a class="nav-link" href="{% url 'create_item' %}">Add Item</a>
+            <a class="nav-link" href="#">Lorem</a>
+            
+          </div>
+        </div>
       </div>
     </nav>
-
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{message.tags}}">
+  {{message}}
+</div>
+{% endfor %}
+{% endif %}
     {% block body %} {% endblock %}
   </body>
 </html>
