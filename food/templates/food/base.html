@@ -36,7 +36,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="food/">Home</a>
+            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
             <a class="nav-link" href="{% url 'create_item' %}">Add Item</a>
             <a class="nav-link" href="{% url 'profile' %}">profile</a>
             {% if user.is_authenticated %}
