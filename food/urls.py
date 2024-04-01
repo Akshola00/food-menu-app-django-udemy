@@ -2,9 +2,9 @@ from django.urls import path
 from . import views
 # app_name = 'food' name spacnig for where there are two or more apps with same url name
 urlpatterns=[
-    path('', views.index, name='index' ),
+    path('', views.index.as_view(), name='index' ),
     path('item/', views.item, name='item' ),
-    path('<int:item_id>', views.detail, name='details'),
+    path('<int:pk>', views.detail.as_view(), name='details'),
 
     # add view
     path('add', views.create_item, name='create_item'),
